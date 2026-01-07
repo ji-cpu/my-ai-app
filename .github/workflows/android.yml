@@ -1,0 +1,23 @@
+name: Build Android APK
+on: [push] # 每次你上传代码，它都会自动运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build with Bubblewrap # 这是一个将 Web 转为 APK 的工具
+        uses: richardsaucedo/bubblewrap-action@v1.0.1
+        with:
+          sw-path: 'sw.js' # 即使没有这个文件也没关系
+          app-name: 'MyAIApp'
+          domain: 'example.com'
+          url: '/'
+          
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-app-bundle
+          path: ./*.apk
