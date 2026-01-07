@@ -1,0 +1,7 @@
+{
+  "name": "格力品悦空调遥控器",
+  "description": "专业级格力品悦系列空调远程控制模拟器，支持多种红外协议选择与AI智能温控建议。",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
